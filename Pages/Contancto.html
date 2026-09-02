@@ -1,0 +1,115 @@
+<!-- Pages/Contancto.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto — Marcos Reyes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Merriweather:wght@400;700&family=Schibsted+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <h1 class="logo">PORTAFOLiO</h1>
+    <div class="divisor"></div>
+    <div class="identidad">
+      <p class="nombre">Marcos Alejandro Reyes Torres</p>
+      <p class="rol">Desarrollador y diseñador — Web + IoT</p>
+    </div>
+  </header>
+
+  <nav class="menu-lateral" id="menuLateral">
+    <button class="menu-cerrar" id="menuCerrar" aria-label="Cerrar menú">✕</button>
+    <a href="../index.html">Inicio</a>
+    <a href="Nosotros.html">Nosotros</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="Contancto.html">Contacto</a>
+  </nav>
+  <div class="overlay" id="overlay"></div>
+
+  <main>
+    <section class="contacto-seccion">
+      <h2 class="titulo-seccion">CONTACTO</h2>
+      <div class="tarjeta-texto tarjeta-contacto">
+
+        <div class="contacto-intro">
+          <div class="icono-decorativo" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="#0500ff" stroke-width="1.8">
+              <path d="M4 4h16v16H4z" stroke-linejoin="round"/>
+              <path d="M4 5l8 7 8-7" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <p>¿Tienes un proyecto en mente o quieres platicar de tecnología? Escríbeme y te respondo lo antes posible.</p>
+        </div>
+
+        <form class="form-contacto" action="#" method="post">
+          <div class="campo">
+            <label for="nombre">Nombre</label>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              placeholder="Tu nombre completo"
+              minlength="2"
+              maxlength="60"
+              required>
+          </div>
+
+          <div class="campo">
+            <label for="correo">Correo electrónico</label>
+            <input
+              type="email"
+              id="correo"
+              name="correo"
+              placeholder="tucorreo@ejemplo.com"
+              required>
+          </div>
+
+          <div class="campo">
+            <label for="telefono">Teléfono</label>
+            <input
+              type="tel"
+              id="telefono"
+              name="telefono"
+              placeholder="0000-0000"
+              pattern="[0-9]{4}-?[0-9]{4}"
+              title="Formato: 0000-0000"
+              required>
+          </div>
+
+          <div class="campo">
+            <label for="asunto">Asunto</label>
+            <input
+              type="text"
+              id="asunto"
+              name="asunto"
+              placeholder="¿De qué quieres hablar?"
+              minlength="3"
+              maxlength="80"
+              required>
+          </div>
+
+          <div class="campo campo-full">
+            <label for="mensaje">Mensaje</label>
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              rows="5"
+              placeholder="Cuéntame los detalles..."
+              minlength="10"
+              maxlength="500"
+              required></textarea>
+          </div>
+
+          <button type="submit" class="btn-enviar">Enviar mensaje</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -5,9 +5,9 @@
   --acento: #e8ff00;
   --destacado: #0500ff;
   --texto-oscuro: #111111;
-  --font-titulo: 'Bungee', sans-serif;
-  --font-nombre: 'Alexandria', sans-serif;
-  --font-texto: 'Hanken Grotesk', sans-serif;
+  --font-titulo: 'Fjalla One', sans-serif;
+  --font-nombre: 'Merriweather', serif;
+  --font-texto: 'Schibsted Grotesk', sans-serif;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -46,7 +46,7 @@ main {
 .logo {
   font-family: var(--font-titulo);
   color: var(--acento);
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   letter-spacing: 1px;
   white-space: nowrap;
 }
@@ -59,30 +59,91 @@ main {
 
 .identidad .nombre {
   font-family: var(--font-nombre);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--acento);
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   line-height: 1.3;
 }
 
 .identidad .rol {
   font-family: var(--font-nombre);
-  font-weight: 600;
+  font-weight: 400;
   color: var(--acento);
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   line-height: 1.3;
+}
+
+/* ---------- MENÚ LATERAL ---------- */
+.menu-lateral {
+  position: fixed;
+  top: 0;
+  left: -280px;
+  width: 260px;
+  height: 100%;
+  background: var(--acento);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.5rem;
+  gap: 1.2rem;
+  transition: left 0.3s ease;
+  z-index: 100;
+}
+
+.menu-lateral.abierto {
+  left: 0;
+}
+
+.menu-lateral a {
+  font-family: var(--font-titulo);
+  color: var(--bg);
+  text-decoration: none;
+  font-size: 1.3rem;
+  letter-spacing: 0.5px;
+}
+
+.menu-lateral a:hover {
+  text-decoration: underline;
+}
+
+.menu-cerrar {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: var(--bg);
+  margin-bottom: 1rem;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 50;
+}
+
+.overlay.visible {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* ---------- SECCIONES ---------- */
 .titulo-seccion {
   font-family: var(--font-titulo);
   color: #ffffff;
-  font-size: 2rem;
-  margin-bottom: -0.4rem;
+  font-size: 2.4rem;
+  margin-bottom: -1.6rem;
   padding-left: 0.3rem;
   letter-spacing: 0.5px;
   position: relative;
   z-index: 1;
+}
+
+.titulo-invisible {
+  visibility: hidden;
 }
 
 .tarjeta-texto {
@@ -90,7 +151,7 @@ main {
   color: var(--texto-oscuro);
   border-radius: 6px;
   padding: 1.6rem;
-  padding-top: 2rem;
+  padding-top: 2.6rem;
   position: relative;
 }
 
@@ -105,9 +166,19 @@ main {
 
 .dos-columnas {
   display: grid;
-  grid-template-columns: 1.2fr 1.2fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
-  align-items: start;
+  align-items: stretch;
+}
+
+.columna {
+  display: flex;
+  flex-direction: column;
+}
+
+.columna .tarjeta-texto,
+.columna .marco-reproductor {
+  flex: 1;
 }
 
 .item-proyecto {
@@ -140,13 +211,17 @@ main {
   border-radius: 8px;
   padding: 0.5rem;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .marco-reproductor img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   display: block;
   border-radius: 4px;
+  flex: 1;
 }
 
 /* ---------- RESPONSIVE ---------- */
@@ -169,4 +244,104 @@ main {
   }
   .logo { font-size: 1.6rem; }
   .identidad .nombre, .identidad .rol { font-size: 1.1rem; }
+}
+
+/* ---------- CONTACTO ---------- */
+.contacto-seccion {
+  margin-top: 1rem;
+}
+
+.tarjeta-contacto {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.contacto-intro {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icono-decorativo {
+  flex-shrink: 0;
+}
+
+.contacto-intro p {
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.form-contacto {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.campo-full {
+  grid-column: 1 / -1;
+}
+
+.campo label {
+  font-weight: 700;
+  color: var(--destacado);
+  font-size: 0.9rem;
+}
+
+.campo input,
+.campo textarea {
+  font-family: var(--font-texto);
+  font-size: 0.95rem;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: var(--texto-oscuro);
+  background: #fafafa;
+}
+
+.campo input:focus,
+.campo textarea:focus {
+  outline: none;
+  border-color: var(--destacado);
+  background: #fff;
+}
+
+.campo input:invalid:not(:placeholder-shown),
+.campo textarea:invalid:not(:placeholder-shown) {
+  border-color: #d64545;
+}
+
+.campo textarea {
+  resize: vertical;
+}
+
+.btn-enviar {
+  grid-column: 1 / -1;
+  justify-self: start;
+  background: var(--acento);
+  color: var(--bg);
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 4px;
+  font-family: var(--font-titulo);
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.btn-enviar:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 700px) {
+  .form-contacto {
+    grid-template-columns: 1fr;
+  }
 }
